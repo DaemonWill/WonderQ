@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var MessageModel = require("../models/message-model")(mongoose);
+MessageModel = new require("../models/message-model")(mongoose);
 var message = MessageModel.Message;
 
 /*
@@ -17,6 +17,7 @@ function WonderQ(config){
         throw err;
       }
     });
+    console.log("Message added!");
   };
 
   //delete a message from the database after the message has been processed or goes beyond failedAttemptsLimit
@@ -40,6 +41,8 @@ function WonderQ(config){
   this.updateMessage = function(message_id, props){
     //do something
   };
+
+  return this;
 };
 
 module.exports = WonderQ;
