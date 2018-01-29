@@ -9,8 +9,8 @@ var mgmtRouter = new require("./routes/management-route")(qManager).mgmtRouter;
 var wonderQ = express();
 
 wonderQ.use(bodyParser.json());
-wonderQ.use("/WonderQ", mgmtRouter);
 wonderQ.use("/WonderQ/alive", aliveRouter);
 wonderQ.use("/WonderQ/dead", deadRouter);
+wonderQ.use("/WonderQ", mgmtRouter);
 wonderQ.listen(config.serverPort);
 console.log("WonderQ listening on port: "+ config.serverPort);

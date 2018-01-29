@@ -21,7 +21,7 @@ var getPropsFromRequest = function(req){
   }
 };
 
-function routeLoader(queueManager){
+function routeLoader(queueManager, config){
   this.deadRouter = deadRouter;
 
   this.deadRouter.get("/", function(req, res){

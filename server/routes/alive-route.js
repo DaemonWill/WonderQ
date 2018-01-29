@@ -8,33 +8,35 @@ var getPropsFromRequest = function(req){
     console.log(errMessage);
     throw errMessage;
   }
-  else if(!req.body.question){
-    console.log("req body: " + JSON.stringify(req.body));
-    errMessage = "required prop missing for Message";
-    console.log(errMessage);
-    throw errMessage;
+  var props = {};
+  if(req.body.question){
+    props.question = req.body.question;
   }
-  else{
-    var props = {
-      "question" : req.body.question
-    };
-    return props;
+  if(req.body._id){
+    props._id = req.body._id;
   }
+  if(req.body.timeDead){
+    props.timeDead = req.body.timeDead;
+  }
+  if(req.body.failedAttempts){
+    props.failedAttempts = req.body.failedAttempts;
+  }
+  return props;
 };
 
 function routeLoader(queueManager){
   this.aliveRouter = aliveRouter;
 
   this.aliveRouter.get("/", function(req, res){
-    //do something
+    queueManager.getMessages(res);
   });
   this.aliveRouter.post("/", function(req, res){
-    console.log(typeof req.body);
     var props = getPropsFromRequest(req);
     queueManager.addMessage(props);
   });
   this.aliveRouter.delete("/", function(req, res){
-    //do something
+    var props = getPropsFromRequest(req);
+    queueManager.deleteMessage(props._id);
   });
 
   this.aliveRouter.get("/stats", function(req, res){
