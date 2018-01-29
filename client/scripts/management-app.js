@@ -66,7 +66,7 @@ managementApp.controller('mgmtCtrl', function($scope,$http,$q) {
   */
   $scope.addProducer = function(){
       var randomTime = Math.floor(Math.random() * 4000) + 1000;
-      setTimeout($scope.createMessage, randomTime, "randomQuestion");
+      $scope.createMessage("randomQuestion");
   };
 
   /**
@@ -75,14 +75,11 @@ managementApp.controller('mgmtCtrl', function($scope,$http,$q) {
   *and processMessage() which deletes them
   */
   $scope.addConsumer = function(){
-      var randomTime = Math.floor(Math.random() * 4000) + 2000;
-      setTimeout(function(){
         var messages = $scope.getUnprocessedMessages();
         console.log(messages);
         for(i in messages){
           var messageId = messages[i]._id;
           $scope.processMessage(messageId);
         }
-      }, randomTime);
     };
 });
