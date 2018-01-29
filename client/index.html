@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="managementApp">
+  <head>
+    <title>Wonder Q</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link type="text/css" href="assets/styles/management-app.css" rel="stylesheet" />-->
+  </head>
+
+  <!-- TODO simple ui to allow the user to test create/view/delete Message documents in mongoDB
+      CREATING and DELETING resources work with the buttons below; however, full integration would have
+      allowed for tabs to be shown with the statistics/states expressed in the managment routes
+      (graphical data of server health, database usage, etc.) -->
+
+  <body ng-controller="mgmtCtrl">
+
+    <!-- Allows user to create and delete a Message with the respective buttons below -->
+    <button class="addProducer" ng-click="addProducer()">Add Producer</button>
+    <button class="addConsumer" ng-click="addConsumer()">Add Consumer</button>
+
+    <!-- TODO not yet implemented, for rapid fire create/delete -->
+    <button class="killProducersSwitch" ng-click="killProducersSwitch()">End Producers</button>
+    <button class="killConsumersSwitch" ng-click="killConsumersSwitch()">End Consumers</button>
+
+    <!-- import js libraries/dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/management-app.js"></script>
+
+  </body>
+</html>
