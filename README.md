@@ -13,7 +13,7 @@
   * Environment Setup
   * API Endpoints
   * Improvents for the API
-  * Test setup
+  * Testing
 
 ------
 
@@ -118,4 +118,4 @@ From the project root folder, run:
 
     npm test
 
-to view test results for API calls to the alive directory.
+: to view test results for API calls to the alive db endpoints.
