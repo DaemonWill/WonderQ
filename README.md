@@ -58,6 +58,7 @@ Once Node and NPM are in place -
   1. In the project's root folder, call an _"npm install"_ to have a node_modules folder generated with most of the required dependencies for the above technologies.
   2. Start your mongoDB server (mongod.exe) and in the mongo shell run `use my-db`, where "my-db" is a place holder for whatever you wish to name your database.
   3. A configuration file is available in this project at *root/server/config*.  You can customize the database/pathing information if you wish here (use dev-config).
+  4. Once the above is completed, you can start your server by calling `node server\index.js` from a command terminal at the project level.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -110,5 +111,11 @@ Some endpoints like: `POST ../WonderQ/alive` require necessary query parameters 
 
 -------
 
-# Improvements for the API
-Some endpoints like: `POST ../WonderQ/alive` require necessary query parameters that are being injected from the request.body at the moment. It would make sense to further develop an endpoint call like: `POST ../WonderQ/alive/:question` as another option. This would apply for all API calls with required params.
+# Testing
+Note you can play around/conduct some ajax calls to the queue through the `../WonderQ/ui` endpoint; similar testing is found in the test directory.
+
+From the project root folder, run:
+
+    npm test
+
+to view test results for API calls to the alive directory.

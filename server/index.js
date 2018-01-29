@@ -22,3 +22,5 @@ wonderQ.use("/WonderQ", mgmtRouter);
 
 wonderQ.listen(config.serverPort);
 console.log("WonderQ listening on port: "+ config.serverPort);
+
+module.exports = wonderQ;
